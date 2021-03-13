@@ -1,9 +1,15 @@
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production';
+const isDomain = isProd ? true : false;
 
+const github = isProd ? '/nexjs-gh-pages' : '';
+const subdomain = isDomain ? '/dev.httpswebsite.xyz' : '';
 module.exports = {
+  // Use the CDN in production and localhost for development.
+  basePath: isDomain ? subdomain : github,
+  assetPrefix: isDomain ? subdomain : github,
   env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? '/nexjs-gh-pages' : '',
+    BACKEND_URL: isProd
+      ? isDomain ? '' : '/nexjs-gh-pages'
+      : '',
   },
-  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
-}
+};

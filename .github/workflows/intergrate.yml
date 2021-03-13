@@ -3,9 +3,6 @@ on: [push]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: 
-      name: github-pages
-      url: https://cursusdev.github.io/
     defaults:
       run:
         working-directory: ./

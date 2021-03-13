@@ -3,7 +3,7 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-export const prefix = process.env.BACKEND_URL
+export const prefix = process.env.BACKEND_URL || ''
 
 const name = 'Shark'
 export const siteTitle = 'Next.js Sample Website'

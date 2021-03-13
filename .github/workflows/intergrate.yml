@@ -22,7 +22,9 @@ jobs:
       - name: Install and Build 🔧
         uses: actions/setup-node@v1
       - run: yarn install --frozen lockfile
+      - run: yarn build
       - run: yarn export
+      #- run: touch ./out/.nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
